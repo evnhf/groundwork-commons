@@ -6,7 +6,7 @@ The governance framework for Groundwork Commons treats technical infrastructure 
 
 ## Overview
 
-Groundwork Commons is built on the principle that community infrastructure should be democratically controlled. The governance model prevents any single administrator from having unilateral control while maintaining operational efficiency.
+Groundwork Commons is built on the principle that community infrastructure should be democratically controlled. The governance model scales from simple single-node administration to multi-node democratic controls that prevent any single administrator from having unilateral control while maintaining operational efficiency.
 
 ## Governance Areas
 
@@ -47,11 +47,13 @@ This section will cover:
 
 The governance framework is guided by these principles:
 
-1. **No single point of control**: Multi-node agreement required for significant actions
-2. **Transparency**: All governance decisions visible to community
-3. **Recallability**: Any position can be removed by community vote
-4. **Forkability**: Communities can split if governance fails
-5. **Local control**: No external authority can override community decisions
+1. **Scalable governance**: Single-node communities use simpler models; multi-node enables distributed democratic controls
+2. **No single point of control** (multi-node): Multi-node agreement required for significant actions
+3. **Transparency**: All governance decisions visible to community
+4. **Recallability**: Any position can be removed by community vote
+5. **Forkability**: Communities can split if governance fails
+6. **Local control**: No external authority can override community decisions
+7. **Growth path**: Communities can add nodes over time to increase resilience and democratic checks
 
 ## Implementation Status
 

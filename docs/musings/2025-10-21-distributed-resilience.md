@@ -9,6 +9,8 @@ I'm interested in creating distributed systems, but the fit isn't quite right fo
 
 **Example scenario**: If my neighbor Dan hosts his own instance and he already has an account, the multi-node architecture ensures resilience in hosting and removes my ability to just turn things off when/if I get mad at someone on the platform.
 
+**Important note**: The system should work perfectly well with a single node (realistic starting point for most neighborhoods), but support multiple nodes for redundancy without arbitrary upper limits.
+
 ## Federation vs Distributed Resilience
 
 This is fundamentally different from what ATProto or ActivityPub solve.
@@ -26,15 +28,20 @@ This is fundamentally different from what ATProto or ActivityPub solve.
 
 ## The Vision: Multi-Master Replication
 
-What if 3-5 neighbors each ran a node, and they all synced the same neighborhood database, so no single person could kill the community?
+The system should work with a single node (realistic starting point) but support optional multi-node setups where neighbors sync the same neighborhood database for resilience.
 
-### Benefits:
+### Single Node:
+- **Simple start**: One person or organization hosts the neighborhood platform
+- **All features work**: Forum, classifieds, moderation, membership
+- **Lower barrier**: No coordination needed between multiple operators
+
+### Multiple Nodes (Optional Resilience):
 - **Server goes down?** Other nodes still work
 - **Admin goes rogue?** Community votes to demote them, other nodes continue
 - **ISP outage?** Another node across town still serves the neighborhood
 - **Operator moves away?** The community persists without them
 
-This aligns with post-collapse resilience vision.
+This aligns with post-collapse resilience vision while keeping initial adoption practical.
 
 ## Technical Approaches
 
@@ -87,6 +94,14 @@ This aligns with post-collapse resilience vision.
 
 ## Proposed Architecture Sketch
 
+### Single Node Setup:
+```
+[Node 1: Single host]
+      ↕
+[All members connect to this node]
+```
+
+### Multi-Node Setup (Optional):
 ```
 [Node 1: Your house]  ←→  [Node 2: Dan's house]  ←→  [Node 3: Sarah's house]
       ↕                          ↕                          ↕
@@ -95,11 +110,12 @@ This aligns with post-collapse resilience vision.
 
 ### How It Works:
 
-1. **3-5 neighbors volunteer to run nodes** (Raspberry Pi, old laptop, VPS)
-2. **Each node runs the same software** (forum + database)
-3. **Nodes continuously sync** via bidirectional replication
-4. **Members connect to any node** (if one is down, try another)
-5. **Voting is cryptographically signed** (prevents tampering)
+1. **Start with one node** (Raspberry Pi, old laptop, VPS)
+2. **Optionally add more nodes** as neighbors volunteer to operate them
+3. **Each node runs the same software** (forum + database)
+4. **Multiple nodes continuously sync** via bidirectional replication
+5. **Members connect to any available node** (if one is down, others serve requests)
+6. **Voting is cryptographically signed** when multi-node governance is active
 
 ## The Governance Layer
 
@@ -108,25 +124,29 @@ This is where it gets interesting. We need democratic controls baked into the te
 ### Node Operator Agreement:
 - Any member can propose running a node
 - Community votes to approve new node operators
-- Minimum 3 nodes, maximum 7 (odd numbers for voting)
-- Node operators commit to uptime SLA (90%+)
+- No hard limits on node count (though practical considerations may limit it)
+- Node operators commit to uptime expectations (details TBD)
 
 ### Democratic Controls:
 
-**Content moderation**: Any node operator can hide content, but it requires 2/3 vote to permanently delete
+Note: These governance mechanisms become relevant primarily in multi-node setups. Single-node communities would use simpler governance models.
 
-**Banning users**: Requires 2/3 vote of node operators
+**Content moderation** (multi-node): Any node operator can hide content, but requires consensus vote to permanently delete
 
-**Changing rules**: Constitutional amendments require 2/3 member vote
+**Banning users** (multi-node): Requires consensus vote of node operators
 
-**Removing node operators**: Requires 2/3 vote, their node is de-replicated
+**Changing rules**: Constitutional amendments require community consensus
+
+**Removing node operators** (multi-node): Requires consensus vote, their node is de-replicated
+
+**Single node governance**: Traditional admin/moderator model with community input, possibility to add nodes later for democratic checks
 
 ### Technical Implementation:
-- Use **signed messages** for all moderation actions
-- Store votes in the replicated database
-- Each node validates signatures and vote counts
-- If node operator is voted out, their node stops receiving updates
-- If they try to tamper, other nodes reject their changes (Byzantine fault tolerance lite)
+- Use **signed messages** for all moderation actions (single or multi-node)
+- Store votes in the replicated database (multi-node)
+- Each node validates signatures and vote counts (multi-node)
+- If node operator is voted out, their node stops receiving updates (multi-node)
+- If they try to tamper, other nodes reject their changes (multi-node Byzantine fault tolerance)
 
 ## The "Nuclear Option" Protection
 
@@ -163,21 +183,22 @@ This is like a **hard fork in blockchain governance**, but for neighborhood foru
 
 ## Scaling to Multiple Neighborhoods
 
-Each neighborhood runs their own 3-5 node cluster:
+Each neighborhood runs their own node(s):
 
 ```
-Oak Street (5 nodes) ←optional bridge→ Maple Avenue (3 nodes)
+Oak Street (1+ nodes) ←optional bridge→ Maple Avenue (1+ nodes)
 ```
 
 Bridges are opt-in and manual. Two neighborhoods can choose to link specific content categories (like "recommendations" or "emergency alerts") but keep marketplace posts separate.
 
 ## Why This Approach Is Compelling
 
-1. **Resilience**: No single point of failure (technical or social)
-2. **Democratic**: Built-in checks on admin power
-3. **Post-collapse ready**: Works with intermittent internet, local mesh networks
-4. **Anti-fragile**: Community can survive bad actors through voting
-5. **Transition infrastructure**: Can evolve from VPS nodes → self-hosted → mesh networks → eventually offline
+1. **Low barrier to entry**: Start with single node, add more for resilience
+2. **Scalable resilience**: No single point of failure when multi-node (technical or social)
+3. **Democratic potential**: Multi-node enables checks on admin power
+4. **Post-collapse ready**: Works with intermittent internet, local mesh networks
+5. **Anti-fragile**: Multi-node communities can survive bad actors through voting
+6. **Transition infrastructure**: Can evolve from VPS nodes → self-hosted → mesh networks → eventually offline
 
 ## Open Questions
 

@@ -11,7 +11,7 @@ Most digital communication platforms treat physical proximity as irrelevant. The
 ## Core Concepts
 
 ### Distributed Infrastructure
-The platform operates on 3-5 nodes run by different community members. These nodes continuously sync data with each other, providing technical resilience and preventing any single point of failure.
+The platform can operate on a single node or scale to multiple nodes run by different community members. Multiple nodes continuously sync data with each other, providing technical resilience and preventing any single point of failure.
 
 ### Democratic Governance
 Node operators are elected by members and can be removed through consensus voting. Moderation decisions require multi-node agreement, preventing any single administrator from unilateral control.
@@ -33,15 +33,15 @@ Built for the 5-50 people who share physical proximity—a street, small neighbo
 
 ## How It Works
 
-Each neighborhood runs nodes operated by different community members. These nodes:
+A neighborhood can start with a single node and add more nodes for resilience. When multiple nodes exist:
 
 1. **Continuously sync data** using multi-master replication
 2. **Provide redundancy** - if one node goes down, others maintain service
-3. **Require consensus** for moderation decisions (no single admin control)
+3. **Enable democratic governance** - consensus for moderation decisions (no single admin control)
 4. **Stay local** - all data remains within the neighborhood network
 5. **Support various hosting** - cloud VPS, self-hosted servers, or future mesh networks
 
-Members connect to any available node. The underlying infrastructure is invisible to everyday users.
+Members connect to any available node. The underlying infrastructure is invisible to everyday users. A single-node setup provides the same features without the redundancy benefits.
 
 ## Project Status
 

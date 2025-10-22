@@ -6,7 +6,7 @@ This section will contain technical architecture documentation, API specificatio
 
 ## Overview
 
-Groundwork Commons is a distributed platform for hyperlocal communities using multi-master replication across 3-5 nodes. The technical architecture balances operational simplicity with resilience and democratic governance requirements.
+Groundwork Commons is a distributed platform for hyperlocal communities that supports single-node or multi-node deployments with optional multi-master replication. The technical architecture balances operational simplicity with resilience and democratic governance requirements.
 
 ## Technical Topics
 
@@ -20,7 +20,8 @@ This section will cover:
 - Scalability considerations
 
 ### Data Replication
-- Multi-master replication strategy
+- Single-node vs multi-node architecture
+- Multi-master replication strategy (when multiple nodes exist)
 - Conflict resolution mechanisms
 - Synchronization protocols
 - Data consistency guarantees
