@@ -6,7 +6,7 @@ A distributed protocol for neighborhood-scale social infrastructure
 
 Most digital communication platforms treat physical proximity as irrelevant. They optimize for reach, engagement metrics, and network effects that scale to millions. This creates a gap: there's no good infrastructure for the 5-50 people who actually share a street or small neighborhood to coordinate about practical matters—lost pets, shared resources, local decisions, mutual aid.
 
-**Groundwork Commons** is a federated platform for hyperlocal communities using multi-master replication across nodes operated by different neighbors. Each node runs an instance that continuously syncs with others, creating redundancy without requiring centralized infrastructure. The system uses distributed database technology for conflict-free replication, meaning data stays entirely within the neighborhood network. When one node goes offline, the others maintain service continuity. Member authentication happens locally, and there's no corporate intermediary with access to community data.
+**Groundwork Commons** is a distributed platform for hyperlocal communities using multi-master replication across nodes operated by different neighbors. Each node runs an instance that continuously syncs with others, creating redundancy without requiring centralized infrastructure. The system uses distributed database technology for conflict-free replication, meaning data stays entirely within the neighborhood network. When one node goes offline, the others maintain service continuity. Member authentication happens locally, and there's no corporate intermediary with access to community data.
 
 ## Core Concepts
 
@@ -28,7 +28,7 @@ Built for the 5-50 people who share physical proximity—a street, small neighbo
 - **Democratic governance** - Elected node operators with consensus-based decision making
 - **Community ownership** - No corporate intermediaries, data stays local
 - **Hyperlocal scale** - Optimized for neighborhoods of 5-50 people
-- **Federation** - Neighborhoods can optionally bridge with other neighborhoods
+- **Data sovereignty** - All data stays within the neighborhood network
 - **Platform cooperativism** - Technical architecture aligned with cooperative governance
 
 ## How It Works

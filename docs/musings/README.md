@@ -23,12 +23,12 @@ This chronological organization shows how ideas evolved and provides context for
 ### 2025-10-21: Distributed Resilience
 [2025-10-21-distributed-resilience.md](2025-10-21-distributed-resilience.md)
 
-Exploration of multi-node replication strategies for neighborhood-scale resilience. Investigates the difference between federation (ATProto, ActivityPub) and distributed data replication (CouchDB, Scuttlebutt, Gun.js). Examines governance mechanisms for preventing admin tyranny through Byzantine fault tolerance and democratic voting.
+Exploration of multi-node replication strategies for neighborhood-scale resilience within a single community. Contrasts this approach with cross-community federation protocols (ATProto, ActivityPub) and examines distributed data replication options (CouchDB, Scuttlebutt, Gun.js). Examines governance mechanisms for preventing admin tyranny through Byzantine fault tolerance and democratic voting.
 
 **Key topics**:
-- Multi-master replication vs federation
+- Multi-node replication within single communities vs cross-community federation
 - CouchDB, Scuttlebutt, Gun.js comparison
-- 3-5 node architecture rationale
+- Single-node starting point with optional multi-node scaling
 - Democratic controls and voting mechanisms
 - Community fork as "nuclear option"
 - Implementation approaches

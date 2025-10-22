@@ -1,24 +1,24 @@
-# Distributed Resilience: Multi-Node Replication vs Federation
+# Distributed Resilience: Multi-Node Replication for Single Communities
 
 **Date**: October 21, 2025
 **Status**: Exploratory
 
 ## The Core Problem
 
-I'm interested in creating distributed systems, but the fit isn't quite right for traditional federation (like ActivityPub or ATProto). The key question is: How can we utilize a node-based hosting strategy where data syncs between nodes that might be owned by different people?
+I'm interested in creating distributed systems, but the fit isn't quite right for traditional cross-community federation protocols (like ActivityPub or ATProto). The key question is: How can we utilize a node-based hosting strategy where data syncs between nodes that might be owned by different people within a single neighborhood?
 
 **Example scenario**: If my neighbor Dan hosts his own instance and he already has an account, the multi-node architecture ensures resilience in hosting and removes my ability to just turn things off when/if I get mad at someone on the platform.
 
 **Important note**: The system should work perfectly well with a single node (realistic starting point for most neighborhoods), but support multiple nodes for redundancy without arbitrary upper limits.
 
-## Federation vs Distributed Resilience
+## Multi-Node Replication vs Cross-Community Federation
 
 This is fundamentally different from what ATProto or ActivityPub solve.
 
-### Traditional Federation Solves:
-- Discovery across networks
-- Identity portability
-- Cross-instance communication
+### Cross-Community Federation Protocols Solve:
+- Discovery across separate networks
+- Identity portability between communities
+- Cross-instance communication and interoperability
 
 ### What We Actually Need:
 - Multi-node redundancy within a SINGLE community
@@ -181,15 +181,9 @@ This is like a **hard fork in blockchain governance**, but for neighborhood foru
 - Add classifieds/marketplace modules
 - **Cost**: Lower hosting (peer-to-peer) but higher learning curve
 
-## Scaling to Multiple Neighborhoods
+## Multiple Neighborhoods
 
-Each neighborhood runs their own node(s):
-
-```
-Oak Street (1+ nodes) ←optional bridge→ Maple Avenue (1+ nodes)
-```
-
-Bridges are opt-in and manual. Two neighborhoods can choose to link specific content categories (like "recommendations" or "emergency alerts") but keep marketplace posts separate.
+Each neighborhood runs their own isolated instance with their own node(s). There is no cross-neighborhood federation protocol. Each community is independent and self-contained.
 
 ## Why This Approach Is Compelling
 
