@@ -22,6 +22,7 @@ What is the change that we're proposing and/or doing?
 - Be specific about what will be implemented
 - Explain the reasoning
 - Reference any technical documentation or research
+- Do NOT include code examples or implementation details - ADRs document decisions, not implementations
 
 ## Consequences
 

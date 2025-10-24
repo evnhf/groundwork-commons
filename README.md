@@ -30,17 +30,22 @@ Built for the 5-50 people who share physical proximity—a street, small neighbo
 - **Hyperlocal scale** - Optimized for neighborhoods of 5-50 people
 - **Data sovereignty** - All data stays within the neighborhood network
 - **.NET technology stack** - Built on proven, mature technology (ASP.NET Core, SQLite, Blazor)
+- **Rich content** - Markdown formatting, image uploads, file attachments, link previews
+- **Flexible storage** - Choose filesystem or cloud storage (S3-compatible) for media
+- **Docker deployment** - Simple Docker Compose setup with web-based configuration wizard
 - **Multiple interfaces** - Web application now, mobile apps in the future
 
 ## How It Works
 
-1. **Primary Node** - One community member runs the primary node (cloud VPS or self-hosted)
-2. **Continuous Replication** - Data continuously replicates to backup locations using Litestream
-3. **Backup Locations** - Replicas stored in cloud storage, peer nodes, or local filesystems
-4. **Manual Failover** - If primary fails, restore from replica and announce new primary URL
-5. **Democratic Operations** - Members vote on governance changes through built-in proposal system
+1. **Deploy with Docker Compose** - Download docker-compose.yml and start containers with one command
+2. **Setup Wizard** - Web-based wizard guides initial configuration (community name, admin account, storage)
+3. **Primary Node** - One community member runs the primary node (cloud VPS or self-hosted)
+4. **Continuous Replication** - Database and media continuously replicate to backup locations using Litestream
+5. **Backup Locations** - Replicas stored in cloud storage, peer nodes, or local filesystems
+6. **Manual Failover** - If primary fails, restore from replica and announce new primary URL
+7. **Democratic Operations** - Members vote on governance changes through built-in proposal system
 
-Communities start with a single primary node. The initial operator becomes the first admin. Over time, communities can elect additional admins and establish multiple backup locations for resilience.
+Communities start with a simple Docker deployment. The setup wizard handles initial configuration. The initial operator becomes the first admin. Over time, communities can elect additional admins and establish multiple backup locations for resilience.
 
 ## Project Status
 
